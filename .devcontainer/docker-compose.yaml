@@ -1,0 +1,30 @@
+
+services:
+  twototango-frontend-dev:
+    container_name: twototango-frontend-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    networks:
+      - twototango-dev
+    ports:
+      - 3000:80
+
+  nginx-proxy:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - twototango-frontend-dev
+    networks:
+      - twototango-dev
+
+networks:
+  twototango-dev:
+    name: twototango-dev

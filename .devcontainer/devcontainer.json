@@ -1,0 +1,19 @@
+{
+	"name": "Node.js & TypeScript",
+	"dockerComposeFile": "docker-compose.yaml",
+	"service": "twototango-frontend-dev",
+	"workspaceFolder":"/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+                "prettier.prettier-vscode",
+				"ms-azuretools.vscode-docker",
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss"
+			]
+		}
+	}
+}
